@@ -1,0 +1,14 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    uses: stussysenik/.github/.github/workflows/ci-node.yml@main
+    with:
+      node-version: "22"
+      package-manager: npm

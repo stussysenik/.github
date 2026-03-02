@@ -1,0 +1,23 @@
+name: Label Sync
+
+on:
+  workflow_call:
+    inputs:
+      config-path:
+        description: "Path to labels config file"
+        type: string
+        default: ".github/labels.yml"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sync labels
+        uses: EndBug/label-sync@v2
+        with:
+          config-file: ${{ inputs.config-path }}
+          delete-other-labels: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

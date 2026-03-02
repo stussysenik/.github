@@ -1,0 +1,21 @@
+name: Release Please
+
+on:
+  workflow_call:
+    inputs:
+      release-type:
+        description: "Release type (node, python, simple, etc.)"
+        type: string
+        default: "node"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
+        with:
+          release-type: ${{ inputs.release-type }}

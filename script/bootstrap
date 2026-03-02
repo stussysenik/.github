@@ -1,0 +1,85 @@
+#!/usr/bin/env bash
+# script/bootstrap — Set up a new repo with defaults from .github
+#
+# Usage: curl -fsSL https://raw.githubusercontent.com/stussysenik/.github/main/script/bootstrap | bash
+# Or:    ./script/bootstrap (from the .github repo)
+
+set -euo pipefail
+
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+GITHUB_DIR="${REPO_ROOT}/.github"
+
+echo "Setting up .github defaults..."
+
+mkdir -p "${GITHUB_DIR}/workflows"
+
+# Detect project type
+if [ -f "${REPO_ROOT}/package.json" ]; then
+  echo "  Detected: Node.js project"
+
+  # Detect package manager
+  PM="npm"
+  if [ -f "${REPO_ROOT}/bun.lockb" ] || [ -f "${REPO_ROOT}/bun.lock" ]; then
+    PM="bun"
+  elif [ -f "${REPO_ROOT}/pnpm-lock.yaml" ]; then
+    PM="pnpm"
+  fi
+
+  cat > "${GITHUB_DIR}/workflows/ci.yml" << EOF
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    uses: stussysenik/.github/.github/workflows/ci-node.yml@main
+    with:
+      package-manager: "${PM}"
+EOF
+  echo "  Created: .github/workflows/ci.yml (${PM})"
+
+elif [ -f "${REPO_ROOT}/pyproject.toml" ] || [ -f "${REPO_ROOT}/requirements.txt" ]; then
+  echo "  Detected: Python project"
+
+  cat > "${GITHUB_DIR}/workflows/ci.yml" << EOF
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    uses: stussysenik/.github/.github/workflows/ci-python.yml@main
+EOF
+  echo "  Created: .github/workflows/ci.yml"
+
+elif [ -f "${REPO_ROOT}/Package.swift" ] || ls "${REPO_ROOT}"/*.xcodeproj &>/dev/null 2>&1; then
+  echo "  Detected: Swift project"
+
+  cat > "${GITHUB_DIR}/workflows/ci.yml" << EOF
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    uses: stussysenik/.github/.github/workflows/ci-swift.yml@main
+EOF
+  echo "  Created: .github/workflows/ci.yml"
+
+else
+  echo "  No recognized project type — skipping CI workflow"
+fi
+
+echo "Done. Community health files are inherited from stussysenik/.github automatically."

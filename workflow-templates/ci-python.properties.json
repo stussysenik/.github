@@ -1,0 +1,5 @@
+{
+  "name": "CI — Python",
+  "description": "Reusable Python CI workflow (ruff, mypy, pytest)",
+  "categories": ["Python", "CI"]
+}

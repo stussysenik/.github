@@ -1,0 +1,5 @@
+{
+  "name": "CI — Node.js",
+  "description": "Reusable Node.js CI workflow (lint, typecheck, test, build)",
+  "categories": ["Node.js", "CI"]
+}

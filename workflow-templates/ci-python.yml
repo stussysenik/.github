@@ -1,0 +1,13 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    uses: stussysenik/.github/.github/workflows/ci-python.yml@main
+    with:
+      python-version: "3.12"

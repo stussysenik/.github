@@ -1,0 +1,5 @@
+{
+  "name": "CI — Swift",
+  "description": "Reusable Swift CI workflow (SPM or Xcode, iOS/macOS)",
+  "categories": ["Swift", "CI"]
+}
