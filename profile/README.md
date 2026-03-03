@@ -1,8 +1,10 @@
 ### hi, i'm senik
 
-web artisan & curious astronaut
+- firmware engineering, computer vision, cinema photogammetry
 
-**bread and butter:** Python, TypeScript/JavaScript, Swift
-**for fun:** Common Lisp, Svelte, Elixir, Zig
+// web artisan & curious astronaut
 
-[portfolio](https://portfolio-forever.vercel.app)
+// **bread and butter:** Python, TypeScript/JavaScript, Swift
+// **for fun:** Common Lisp, Svelte, Elixir, Zig
+
+[digital portfolio](https://stussysenik.com)
