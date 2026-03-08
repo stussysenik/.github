@@ -1,6 +1,7 @@
 ### hi, i'm senik!
 
-i'm currently passionate about firmware engineering, computer vision, cinema photogammetry. i like to also design minimalistic things-that-works
+i'm currently passionate about firmware engineering, computer vision, cinema photogammetry
+i like to also design minimalistic things + WebGPU, or tinker in iOS Swift UI
 
 <!--- web artisan & curious astronaut --->
 <!--- industrial design, CAD design --->
