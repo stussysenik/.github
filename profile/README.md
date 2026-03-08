@@ -1,10 +1,8 @@
-### hi, i'm senik
+### hi, i'm senik!
 
-- firmware engineering, computer vision, cinema photogammetry
+i'm currently passionate about firmware engineering, computer vision, cinema photogammetry. i like to also design minimalistic things-that-works
 
-// web artisan & curious astronaut
-
-// **bread and butter:** Python, TypeScript/JavaScript, Swift
-// **for fun:** Common Lisp, Svelte, Elixir, Zig
-
-[digital portfolio](https://stussysenik.com)
+<!--- web artisan & curious astronaut --->
+<!--- industrial design, CAD design --->
+<!--- **bread and butter:** Python, TypeScript/JavaScript, Swift
+ **for fun:** Common Lisp, Svelte, Elixir, Zig --->
